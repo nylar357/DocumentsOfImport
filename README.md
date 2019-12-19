@@ -84,3 +84,6 @@ You can now proceed with the compilation:
 go get -u github.com/bettercap/bettercap
 
 Once the build process is concluded, the binary will be located in go/bin/bettercap.
+
+This has a particular implication for password hashes. Password hashes in PHP are base16 encoded and can come in the form of “0e812389…”. The problem is in == comparison the 0e means that if the following characters are all digits the whole string gets treated as a float. This was pointed out five years ago by Gregor Kopf, two years ago by Tyler Borland and Raz0r and again a year ago by Michal Spacek and Jos Wetzels but this technique is making more waves this past week. Below is a list of hash types that when hashed are ^0+ed*$ which equates to zero in PHP when magic hashes typing using the “==” operator is applied. That means that when a password hash starts with “0e…” as an example it will always appear to match the below strings, regardless of what they actually are if all of the subsequent characters are digits from “0-9”. 
+
