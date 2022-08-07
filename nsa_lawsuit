@@ -1,0 +1,233 @@
+2022.08.05: NSA, NIST, and post-quantum cryptography: Announcing my second lawsuit against the U.S. government. #nsa #nist #des #dsa #dualec #sigintenablingproject #nistpqc #foia
+
+The Black Chamber was founded by the U.S. Army and the U.S. State Department in 1919. The Secretary of State terminated funding in 1929, famously writing that "Gentlemen do not read each other's mail."
+
+The Black Chamber was succeeded by the Signal Intelligence Service in 1930, the Armed Forces Security Agency in 1949, and the National Security Agency (NSA) in 1952. NSA's Project Minaret began spying on anti-war protesters in 1967. NSA's targets under this project included Martin Luther King, New York Times journalist Tom Wicker, U.S. senator Frank Church, and many more.
+
+NSA's policy decision to sabotage public cryptographic standards. In 1968, the National Bureau of Standards (NBS) "went to NSA for help", in the words of an internal NSA history book. Work by journalists over several years forced NSA to release the relevant portions of the book in 2013, and before that smaller portions in 2008 and 2009.
+
+NBS was an agency inside the U.S. Department of Commerce, another part of the U.S. government. Later NBS was renamed the National Institute of Standards and Technology (NIST). The reason NBS went to NSA is that NBS had decided to develop a U.S. government encryption standard.
+
+According to the same history book, this triggered an internal debate within NSA, culminating in NSA deciding to manipulate public standards to make sure they were "weak enough" for NSA to break them:
+
+    Narrowing the encryption problem to a single, influential algorithm might drive out competitors, and that would reduce the field that NSA had to be concerned about. Could a public encryption standard be made secure enough to protect against everything but a massive brute force attack, but weak enough to still permit an attack of some nature using very sophisticated (and expensive) techniques? 
+
+NSA then worked with NBS and IBM's Walter Tuchman on the design of what later became the Data Encryption Standard (DES):
+
+    NSA gave Tuchman a clearance and brought him in to work jointly with the Agency on his Lucifer modification ... The relationship between NSA and NBS was very close. NSA scientists working the problem crossed back and forth between the two agencies, and NSA unquestionably exercised an influential role in the algorithm. 
+
+Back in the 1970s, Tuchman and NSA told a completely different story to the public. For example, regarding accusations that IBM and NSA had "conspired", Tuchman told an interviewer "We developed the DES algorithm entirely within IBM using IBMers. The NSA did not dictate a single wire!"
+
+As another example, here's a 1979 statement from NSA director Bobby Inman:
+
+    NSA has been accused of intervening in the development of the DES and of tampering with the standard so as to weaken it cryptographically. This allegation is totally false. 
+
+See Section 3.6 of my paper Cryptographic competitions for further quotes and references.
+
+The breakability of DES. The cryptographic core of NSA's sabotage of DES was remarkably blunt: NSA simply convinced Tuchman to limit the key size to 56 bits, a glaring weakness.
+
+Whit Diffie and Marty Hellman wrote a paper explaining in considerable detail how to build a machine for $20 million that would break each DES key with an amortized cost of just $5000/key using mid-1970s technology. They predicted that the cost of such a brute-force attack would drop "in about 10 years time" to about $50/key, simply from chip technology improving.
+
+Diffie and Hellman already distributed drafts of their paper before DES was standardized. Did NSA say, oh, oops, you caught us, this isn't secure?
+
+Of course not. NSA claimed that, according to their own estimates, the attack was 30000 times more expensive: "instead of one day he gets something like 91 years".
+
+Meanwhile NSA claimed that "for the next n years, up to 10, we stand by the statement that this is more than adequate", as if DES were going to be replaced soon. In fact, DES remained an official U.S. government standard until 2005.
+
+(Remember that, internally, NSA had observed that "narrowing the encryption problem to a single, influential algorithm might drive out competitors, and that would reduce the field that NSA had to be concerned about". Externally, NSA was playing dumb.)
+
+Diffie and Hellman proposed a low-cost modification to DES to use longer keys. Questionable performance arguments were raised in response.
+
+For example, various government contractors claimed at a 1976 NBS workshop that DES was "close to the maximum that could be implemented on a chip with present technology" and that a manufacturing delay "of one to two years might be encountered if a longer key were required". Even if this was true, how could it possibly justify establishing a breakable standard for the next 10 years, never mind the next three decades?
+
+In 1980, Hellman published "A cryptanalytic time-memory tradeoff". This was an algorithmic improvement showing that, compared to a brute-force machine, a more sophisticated machine could be constructed with an even smaller cost of breaking each key.
+
+In 1993, Mike Wiener wrote a paper "Efficient DES key search" giving an even more detailed description of a brute-force DES attack machine, not including Hellman's time-memory tradeoff. In a 1997 update, Wiener estimated that it would cost about $1 million to build a machine that would break each key in 35 minutes.
+
+Wiener's estimate corresponded to an amortized cost of $13/key, assuming a 5-year hardware lifetime, or perhaps twice as much if one includes the costs of electricity. Extrapolating from the 1970s brute-force estimates by Diffie and Hellman, one might instead guess $1/key. Extrapolating from the 1970s brute-force estimates by NSA, one might instead guess $30000/key, an indefensible and dangerous overestimate.
+
+DES was so cheap to break in 1997 that one could throw away orders of magnitude of efficiency, using off-the-shelf computers instead of optimized attack circuits, and still break DES. This was demonstrated by DESCHALL in 1997.
+
+In response to DESCHALL, Federal Bureau of Investigation Director Louis Freeh testified as follows in a 1997 hearing:
+
+    If we hooked together thousands of computers and worked together over 4 months we might, as was recently demonstrated decrypt one message bit. That is not going to make a difference in a kidnapping case, it is not going to make a difference in a national security case. We don't have the technology or the brute force capability to get to this information. 
+
+NSA Deputy Director William Crowell testified at the same hearing that "There is no brute force solution for law enforcement," again highlighting that "It took 78,000 computers 96 days to break one message, and the headline was, DES has weak encryption."
+
+Did NSA admit that optimized hardware was much more efficient? Of course not. It was taking the inefficiency of off-the-shelf computers and misrepresenting this as security of DES.
+
+In 1998, the Electronic Frontier Foundation assembled a $250000 machine, the DES Cracker, to publicly break DES in a few days. This was, obviously, much cheaper and faster than 96 days on 78000 computers.
+
+Did NSA admit that its public estimates of the cost of breaking DES (1) were wild overestimates even for a brute-force attack machine and (2) were ignoring algorithmic improvements such as Hellman's time-memory tradeoff? Of course not.
+
+The Digital Signature Algorithm. NIST was busy in the meantime issuing more cryptographic standards. One of these was an influential standard for a Digital Signature Algorithm (DSA).
+
+NSA had proposed DSA in 1991. The DSA proposal had an obvious, glaring flaw: a 512-bit key size.
+
+This sounds much larger than the 56-bit DES key size. But DSA is a different type of cryptographic system, using a type of mathematical structure that was already publicly known in 1991 to require much larger key sizes for security.
+
+With attack algorithms publicly known in 1991, 512 bits for DSA seemed somewhat stronger than 56 bits for DES. But chips were faster in 1991 than they were in the 1970s. The DSA attack algorithms known in 1991 were also much more complicated than the DES attack algorithms. Many aspects of the DSA attacks hadn't been thoroughly studied. The attacks were publicly superseded by even faster, even more complicated attacks.
+
+Beyond this glaring flaw, DSA had further flaws that weren't as obvious. For example, DSA had interesting possibilities for back doors. It also had pitfalls that would trap implementors. Ron Rivest wrote in 1992 that "the poor user is given enough rope with which to hang himself".
+
+At the beginning, NIST presented DSA as a NIST proposal, making no mention of NSA. A FOIA lawsuit by Computer Professionals for Social Responsibility (CPSR) revealed, however, that DSA had been secretly designed by NSA.
+
+(FOIA is the Freedom of Information Act, a law generally requiring the U.S. government to promptly provide records to the public upon request. Sometimes agencies disobey the law, and one has to go to court to have the law enforced. That's what CPSR did.)
+
+Public backlash forced NIST to allow larger keys in the DSA standard in 1994. But the keys were still limited to 1024 bits; 1024 bits for DSA are much less secure than, e.g., 128 bits for AES. The DSA standard also did nothing to address DSA's further flaws.
+
+The specific "hang himself" problem that Rivest had highlighted was publicly exploited in a 2010 break of the Sony PlayStation security system, which used ECDSA, a variant of DSA. Presumably the same problem was secretly exploited by large-scale attackers against higher-value targets.
+
+The scale of attacks. What do I mean by "large-scale attackers?" Let's take the Chinese government as an example. Here's a 2012 quote from an "Investigative report on the U.S. national security issues posed by Chinese telecommunications companies Huawei and ZTE":
+
+    Chinese intelligence collection efforts against the U.S. government are growing in "scale, intensity and sophistication." Chinese actors are also the world's most active and persistent perpetrators of economic espionage. U.S. private sector firms and cyber-security specialists report an ongoing onslaught of sophisticated computer network intrusions that originate in China, and are almost certainly the work of, or have the backing of, the Chinese government. Further, Chinese intelligence services, as well as private companies and other entities, often recruit those with direct access to corporate networks to steal trade secrets and other sensitive proprietary data. 
+
+The large-scale attacker whose behavior seems most comprehensively documented is the U.S. government. The European Parliament already issued a 194-page "Report on the existence of a global system for the interception of private and commercial communications (ECHELON interception system)" in 2001:
+
+    The existence of a global system for intercepting communications, operating by means of cooperation proportionate to their capabilities among the USA, the UK, Canada, Australia and New Zealand under the UKUSA Agreement, is no longer in doubt ... The US authorities have repeatedly tried to justify the interception of telecommunications by accusing the European authorities of corruption and taking bribes. It should be pointed out to the Americans that all EU Member States have properly functioning criminal justice systems. If there is evidence that crimes have been committed, the USA must leave the task of law enforcement to the host countries. If there is no such evidence, surveillance must be regarded as unproportional, a violation of human rights and thus inadmissible. 
+
+Some Americans trust their government and happily swallow whatever the government's latest excuse is for spying on billions of people around the world. "U.S. kills al Qaeda leader Zawahiri in Kabul drone missile strike", of course with the help of the espionage system? Sounds great! Last year the same system murdered 10 innocent civilians without a trial? Isolated mistake! Also, doesn't the Constitution say that the only people entitled to a trial are rich white male normal-looking Americans?
+
+The same people tend to have trouble grasping that most of the vulnerabilities exploited and encouraged by NSA are also exploitable by the Chinese government. These people start with the assumption that Americans are the best at everything; ergo, we're also the best at espionage. If the Chinese government stole millions of personnel records from the U.S. government, records easily usable as a springboard for further attacks, this can't possibly be because the U.S. government made a policy decision to keep our computer systems "weak enough to still permit an attack of some nature using very sophisticated (and expensive) techniques".
+
+New directions in cryptographic sabotage. Cryptographic weaknesses aren't always exploitable by everybody. Sometimes it's possible to design a cryptographic system with a back door that can be opened only by someone who has a secret key. A spectacular example is the Dual Elliptic Curve Deterministic Random Bit Generator (Dual EC).
+
+The Dual EC standard includes two random-looking constants P and Q, points on an "elliptic curve". Dual EC uses P, Q, and some initial randomness provided by the user to generate a long sequence of random-looking numbers. Cryptography often needs many random numbers.
+
+The secret key to the Dual EC back door is the "discrete logarithm" of Q base P. It's easy to generate this secret key while generating P and Q. An attacker who knows this secret key can exploit secret patterns in the Dual EC output, even without being told the initial randomness from the user. This is a severe weakness in Dual EC, but it's exploitable only if you know the secret key.
+
+A 2013 New York Times report said that internal NSA documents provided by Ed Snowden "appear to confirm that the fatal weakness ... was engineered by the agency". The same report gave an idea of the magnitude of NSA's sabotage efforts:
+
+    According to an intelligence budget document leaked by Mr. Snowden, the N.S.A. spends more than $250 million a year on its Sigint Enabling Project, which "actively engages the U.S. and foreign IT industries to covertly influence and/or overtly leverage their commercial products’ designs" to make them "exploitable." ... One goal in the agency’s 2013 budget request was to “influence policies, standards and specifications for commercial public key technologies,” the most common encryption method. 
+
+Did NSA admit that, okay, you caught us, we designed Dual EC to be exploitable? Of course not. NSA's Dickie George gave a talk in 2014 making the following claims (minutes 32-33 and 57-61):
+
+    NSA couldn't use cryptography that wasn't standardized by NIST. (In fact, NSA has its own classified suite of algorithms, Suite A.)
+    "So I had to go down to my friends at NIST, and I know 'em well, cause I work with them on other things ..." (This part is true: NSA does work with NIST.)
+    "We're gonna use the Dual Elliptic Curve randomizer. And I said, if you can put this in your standard, nobody else is gonna use it, because it looks ugly, it's really slow, it makes no sense for anybody to go there, but I'll be able to use it. And so they stuck it in." (In fact, NSA paid the RSA company $10 million to make Dual EC "the preferred, or default, method for number generation in the BSafe software".)
+    "And I said, by the way, these parameters that we have here, as long as they're in there so we can use them, you can let anybody else put any parameters in that they want." (In fact, the Dual EC standard specifically discouraged implementors from switching away from NSA's P and Q. NIST also set up validation procedures specifically requiring NSA's P and Q.)
+    "Sticking a bunch of digits of pi in the middle or something like that, so you can show it's not some kind of hoked-up thing, we just don't do that." (In fact, NSA did something like that to generate the NIST P-256 elliptic curve a few years earlier, first publishing supposedly random numbers but then feeding the random numbers through a hash function to generate the curve parameters, so the public could check the hash. If NSA had similarly used a hash function for both P and Q in Dual EC then it would have been throwing away the key for the Dual EC back door.)
+    "We don't care what the parameters are for anybody else as long as the government ones are there for government use." (In fact, FOIA requests to NIST showed Don Johnson telling NIST that P and Q "could also be generated like a(nother) canonical G, but NSA kyboshed this idea, and I was not allowed to publicly discuss it, just in case you may think of going there.")
+
+George also challenged researchers "to actually generate their own parameters and show me that in real life they can recover that." He offered dinner. Did he pay up after a paper "On the practical exploitability of Dual EC in TLS implementations" appeared at the USENIX Security Symposium? Of course not.
+
+Typical cryptographic weaknesses are algorithms that, if discovered by the public, can be demonstrated to work. The weakness in Dual EC is different. Shumow and Ferguson announced in 2007 that there mathematically exists a back door with a secret key, and that anyone generating P and Q can easily generate a secret key at the same time; but this still doesn't demonstrate that NSA did generate a secret key along with P and Q. We have no way to prove that NSA's P and Q are weak.
+
+For the same reason, if someone changes P and/or Q, a code reviewer can't tell whether this is being done safely or is stealthily opening up a back door. In the Juniper Dual EC incident, Juniper chose its own Q for its NetScreen VPN routers, but then an attacker managed to modify the code to substitute a new choice of Q. So much for the idea that this weakness could be exploited only by NSA.
+
+Technical interlude: bamboozling people with fake mathematics. Internally, Dual EC generates more elliptic-curve points. Each point has an x-coordinate and a y-coordinate. The numbers that Dual EC releases as output are truncated versions of the x-coordinate of each point. The truncation removes 16 bits.
+
+An attacker exploiting the back door has to try 216 possibilities for the missing bits. This has low cost, since 16 is so small. If, however, 16 were replaced by a much larger number, such as 128, then the back door would become so expensive as to be worthless.
+
+Why did NSA include truncation in the first place? Answer: Releasing the full x-coordinates, with no truncation, would have shown glaring statistical biases, and this would have been too embarrassing for NIST to standardize.
+
+Attack papers in 2006 by Kristian Gjøsteen and then Berry Schoenmakers and Andrey Sidorenko showed that Dual EC was still detectably biased: it wasn't removing enough bits to meet the standard definition of security for random-number generators.
+
+Did NSA admit that, oops, Dual EC was broken? Of course not. Let's look at what NSA wrote instead, specifically pages 88–91 of NIST's Dual EC standard (2012 version), SP 800-90A.
+
+NSA didn't even acknowledge the standard security goal of being indistinguishable from truly random numbers. NSA spent two pages on calculations related to a weaker security goal, having nearly full "entropy". NSA concluded that the entropy loss with 16 bits of truncation "has been demonstrated to be minimal (see the above chart)".
+
+This still wouldn't stop people from removing more bits (and thus making the back door harder to exploit). So NSA also played the performance card: "One might wonder if it would be desirable to truncate more than this amount. The obvious drawback to such an approach is that increasing the truncation amount hinders the performance."
+
+But, hmmm, random-number generation usually isn't the most important bottleneck in cryptography. That's why something as slow as Dual EC could be deployed in the first place. So NSA pulled out another argument:
+
+    However, there is an additional reason that argues against increasing the truncation. Consider the case where the low s bits of each x-coordinate are kept. Given some subinterval I of length 2s contained in [0, p), and letting N(I) denote the number of x-coordinates in I, recent results on the distribution of x-coordinates in [0, p) provide the following bound: |N(I)/(p/2)-2s/p| < (k*log2 p)/sqrt(p) where k is some constant derived from the asymptotic estimates given in [Shparlinski]. For the case of P-521, this is roughly equivalent to: |N(I)-2(s-1)| < k*2277, where the constant k is independent of the value of s. For s < 2277, this inequality is weak and provides very little support for the notion that these truncated x-coordinates are uniformly distributed. On the other hand, the larger the value of s, the sharper this inequality becomes, providing stronger evidence that the associated truncated x-coordinates are uniformly distributed. Therefore, by keeping truncation to an acceptable minimum, the performance is increased, and certain guarantees can be made about the uniform distribution of the resulting truncated quantities. Further discussion of the uniformity of the truncated x-coordinates is found in [Gurel], where the form of the prime defining the field is also taken into account. 
+
+Any mathematician who checks this sees how ludicrously inaccurate it is. The central error is already visible in the third sentence, which counts the number of integers in an interval of length 2s. That's the number of integers that produce a given output when one throws away the bottom s bits, not when one keeps the bottom s bits. Correcting this error and following through the rest of the argument leads to the conclusion that, for guarantees regarding the distribution, one should truncate more than half of the bits.
+
+But NIST never checked. NIST's friends at NSA were providing text and references arguing against increasing the truncation; so NIST accepted this, redistributed it, and didn't increase the truncation.
+
+Dual EC fallout. After Shumow and Ferguson announced the vulnerability in Dual EC, Bruce Schneier wrote an article "Did NSA put a secret backdoor in new encryption standard?" ending as follows:
+
+    My recommendation, if you're in need of a random-number generator, is not to use Dual_EC_DRBG under any circumstances. If you have to use something in SP 800-90, use CTR_DRBG or Hash_DRBG.
+
+    In the meantime, both NIST and the NSA have some explaining to do. 
+
+But most cryptographers didn't take the threat seriously. Consider, for example, Shumow's 2008 talk with the title "Shumow and Schneier escape from Guantanamo Bay". Shumow mocked "conspiracy theories", accused Schneier of omitting facts "in a way to make the NSA (as well as Microsoft) look far worse than they otherwise would", and argued that Dual EC exploits were "possible but improbable":
+
+    I found this, and I am neither a talented mathematician nor a talented cryptographer. I was just the first person to commercially implement the algorithm.
+
+    The probability of getting caught trying to sneak this in is too high.
+
+    Neither NIST nor the NSA told anyone to use this (it is not the Clipper Chip.) ...
+
+    The NSA is not the cryptographic research power house it once was. 
+
+In 2013, the Snowden documents finally forced NIST to do some soul-searching. NIST's Dual EC post-mortem drew the following conclusion:
+
+    It is of paramount importance that NIST's process for developing cryptographic standards is open and transparent and has the trust and support of the cryptographic community. 
+
+The same post-mortem shows NIST's invited reviewers recommending clear transparency rules, such as "full documentation of all decisions, and clear processes for the disposition of each and every comment received", along with being open about "what authorities were consulted".
+
+Note that it's not always obvious who's providing input. For example, NIST received the draft Dual EC proposal from another standardization organization, ANSI. Dual EC was proposed to ANSI not by NSA, but by Johnson, who was working for Cygnacom, a defense contractor. But NIST did end up working directly with NSA on the Dual EC standard. Prompt reporting of NIST's communications and evaluations would have given the public many more opportunities to promptly catch what was happening with Dual EC.
+
+Post-quantum cryptography. A 2014 Washington Post article "NSA seeks to build quantum computer that could crack most types of encryption" said that NSA had an $80 million/year research program called "Penetrating hard targets", including research aimed at building a "cryptologically useful quantum computer".
+
+This is only part of the U.S. government budget for breaking pre-quantum cryptography. My 2012 talk "Cryptography for the paranoid" pointed to a $2.2 million grant for defense contractor Raytheon as "one of many publicly announced quantum-computing grants from government agencies".
+
+Put yourself in NSA's shoes for a moment. You have a budget to build a quantum computer to break pre-quantum cryptography. You are, of course, aware of public efforts to design and deploy post-quantum cryptography. You also have a quarter-billion-dollar-a-year budget to "covertly influence and/or overtly leverage" deployed cryptography to make it "exploitable". What do you do?
+
+Some people seem to be unable to rationally consider the possibility that NSA is sabotaging post-quantum cryptography. I've heard people saying, for example, that submissions to the NIST Post-Quantum Cryptography Standardization Project (NISTPQC) were publicly designed and evaluated by top experts, and that NSA can't have bribed the submission teams.
+
+Let's look at the facts.
+
+Almost all of the submissions to NISTPQC have less security against the best attacks publicly known today than they had against the best attacks publicly known when they were submitted in 2017. I'm not talking about chips getting faster: I'm talking about new attack algorithms.
+
+For many of the submissions, the attack improvements have been so dramatic that the submissions have been publicly demonstrated to be rapidly breakable on a laptop. Last month a new attack broke SIKE, one of just eight submissions that was still under consideration by NIST, one of just two submissions that had been selected for a high-profile Cloudflare–Google TLS experiment in 2019.
+
+As for "top experts", here's a quote from a document "Risks of lattice KEMs" by the NTRU Prime Risk-Management Team:
+
+    Consider the fact that the Institute for Defense Analyses, an NSA consulting company, many years ago hired Buhler, one of the original developers of the number-field sieve [94] for integer factorization; Gordon, the first developer of a discrete-logarithm version [166] of the number-field sieve; Miller, who as part of introducing ECC [261] was one of the first authors to probe the limits of discrete-logarithm algorithms; and Coppersmith. Much less data is available regarding the cryptanalytic capabilities of, e.g., the Chinese government. Surely large-scale attackers know many more attacks than this public does. 
+
+At the risk of belaboring the obvious: An attacker won't have to say "Oops, researcher X is working in public and has just found an attack; can we suppress this somehow?" if the attacker had the common sense to hire X years earlier, meaning that X isn't working in public. People arguing that there can't be sabotage because submission teams can't be bribed are completely missing the point.
+
+I coined the phrase "post-quantum cryptography" in 2003. It's not hard to imagine that the NSA/IDA post-quantum attack team was already hard at work before that, that they're years ahead of the public in finding attacks, and that NSA has been pushing NISTPQC to select algorithms that NSA secretly knows how to break.
+
+Could such a weakness also be exploited by other large-scale attackers? Best bet is that the answer is yes. Would this possibility stop NSA from pushing for the weakness? Of course not.
+
+Hybrids. When Google rolled out its first post-quantum experiment in 2016, it didn't switch from encrypting with a well-established pre-quantum system to encrypting with a post-quantum system. Instead it encrypted with a well-established pre-quantum system and encrypted with a post-quantum system, so that at least it wouldn't be losing security if the post-quantum system turned out to be breakable.
+
+The 2019 Cloudflare–Google experiment worked the same way. The general view today is that of course post-quantum cryptography should be an extra layer on top of well-established pre-quantum cryptography. As the French government cybersecurity agency (Agence nationale de la sécurité des systèmes d'information, ANSSI) put it at the end of 2021:
+
+    Acknowledging the immaturity of PQC is important: ANSSI will not endorse any direct drop-in replacement of currently used algorithms in the short/medium term. However, this immaturity should not serve as an argument for postponing the first deployments. ANSSI encourages all industries to progress towards an initiation of a gradual overlap transition in order to progressively increase trust on the post-quantum algorithms and their implementations while ensuring no security regression as far as classical (pre-quantum) security is concerned. ...
+
+    Given that most post-quantum algorithms involve message sizes much larger than the current pre-quantum schemes, the extra performance cost of an hybrid scheme remains low in comparison with the cost of the underlying post-quantum scheme. ANSSI believes that this is a reasonable price to pay for guaranteeing an additional pre-quantum security at least equivalent to the one provided by current pre-quantum standardized algorithms. 
+
+But NSA has a different position: it says that it "does not expect to approve" hybrids. Publicly, NSA justifies this by
+
+    pointing to a fringe case where a careless effort to add an extra security layer damaged security, and
+    expressing "confidence in the NIST PQC process".
+
+Does that mean the original NISTPQC process, or the current NISTPQC process in which NIST, evidently surprised by attacks, announced plans to call for new submissions?
+
+Of course, if NSA/IDA have secretly developed an attack that works for a particular type of post-quantum cryptosystem, then it makes sense that they'd want people to start using that type of cryptosystem and turn off the existing pre-quantum cryptosystem.
+
+Transparency for NISTPQC. NIST issued final "Submission requirements and evaluation criteria for the post-quantum cryptography standardization process" in December 2016, including a promise that NIST would "perform a thorough analysis of the submitted algorithms in a manner that is open and transparent to the public".
+
+It became clear to me in 2020 that, despite this promise, most of NIST's evaluation process was happening behind closed doors. I tweeted the following at 13:01 GMT on 22 July 2020:
+
+    After NIST's Dual EC standard was revealed in 2013 to be an actual (rather than just potential) NSA back door, NIST promised more transparency. Why does NIST keep soliciting private #NISTPQC input? (The submissions I'm involved in seem well positioned; that's not the point.) 
+
+Coincidentally, at 13:02 GMT on 22 July 2020, NSA suddenly made its first public appearance in NISTPQC. Slides from NIST in September 2020 admitted that before this there was already "feedback" from NSA to NIST (slide 20). The public still hasn't seen the contents of NIST's communications with NSA, defense contractors, etc., let alone the records of how NIST processed the input it received.
+
+The same September 2020 NIST slides tried to downplay NSA's influence: "NIST alone makes the PQC standardization decisions, based on publicly available information, and stands by those decisions." One is reminded of Tuchman saying "We developed the DES algorithm entirely within IBM using IBMers. The NSA did not dictate a single wire!"
+
+In 2021, NIST claimed that "We operate transparently. We've shown all our work". In fact, most of the information on NIST's web site for this project is simply copies of submissions. NIST has posted some extra information, but the total volume of information in NIST's reports, web pages, and mailing-list messages obviously falls far short of "all our work". Anyone trying to obtain more than a superficial understanding of what has happened in NISTPQC rapidly discovers that critical information is missing. See my paper "A discretization attack", specifically Section 5, for various concrete examples of mysteries regarding the NIST process.
+
+I've filed seven FOIA requests with NIST since mid-2020. NIST has released a few dribbles of information, but in general NIST's responses have been very slow and obviously not complete.
+
+For example, I filed a FOIA request in June 2021 asking for "copies of all NIST records of communication between NSA and NIST regarding the NIST Post-Quantum Cryptography Standardization Project". This request has, so far, produced zero records. NIST has stonewalled, ignoring the FOIA deadlines.
+
+My seventh FOIA request, in March 2022, said the following:
+
+    Analyzing NSA's impact on this project will require not just seeing NSA's communication with NIST, but also tracing how NIST's decisions were made and analyzing the influence of the information that NIST received from NSA. If each step of this analysis requires dealing with another round of stonewalling from NIST then the analysis will obviously not be done in time to help the public make safe decisions regarding post-quantum cryptography.
+
+    NSA's documented history of sabotage, along with its evident sway over NIST, makes NSA's influence on NIST a high priority to review, but it also seems likely that other entities have also been trying to sabotage NIST's process. As far as I can tell, NIST has no procedures in place to prevent attackers from influencing the project through pseudonyms, proxies, etc. Anything short of a full review of project records could easily miss evidence of attacks.
+
+    Even without sabotage, getting cryptography right is challenging. Public review has identified security flaws in dozens of submissions and has identified many errors in the limited additional information released by NIST. Having NIST keep most of its analysis secret is a recipe for disaster. Given that NIST promised to be "open and transparent", and recently claimed to have "shown all our work", it's hard to understand why the full project records aren't already available to the public. 
+
+I asked for the full NISTPQC records, and for "all records of NIST/NSA meetings mentioning the word 'quantum', whether or not NIST views those meetings as part of this project".
+
+NIST has produced zero records in response to this FOIA request. Civil-rights firm Loevy & Loevy has now filed suit on my behalf in federal court, the United States District Court for the District of Columbia, to force NIST to comply with the law.
+
+[2022.08.06 edits: Fixed "requests since" -> "requests with". Added the "At the risk of belaboring the obvious" paragraph. Added various further links under existing text.] 
