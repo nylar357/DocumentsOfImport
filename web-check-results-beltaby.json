@@ -1,0 +1,909 @@
+{
+  "location": {
+    "city": "Minsk",
+    "region": "Minsk City",
+    "country": "Belarus",
+    "postCode": "220073",
+    "regionCode": "HM",
+    "countryCode": "BY",
+    "coords": {
+      "latitude": 53.901,
+      "longitude": 27.5707
+    },
+    "isp": "Republican Unitary Telecommunication Enterprise Beltelecom",
+    "timezone": "Europe/Minsk",
+    "languages": "be,ru",
+    "currencyCode": "BYN",
+    "currency": "Belarusian ruble",
+    "countryDomain": ".by",
+    "countryAreaSize": 207600,
+    "countryPopulation": 9485386
+  },
+  "ssl": {
+    "subject": {
+      "CN": "*.belta.by"
+    },
+    "issuer": {
+      "C": "BE",
+      "O": "GlobalSign nv-sa",
+      "CN": "GlobalSign GCC R6 AlphaSSL CA 2023"
+    },
+    "subjectaltname": "DNS:*.belta.by, DNS:belta.by",
+    "infoAccess": {
+      "CA Issuers - URI": [
+        "http://secure.globalsign.com/cacert/gsgccr6alphasslca2023.crt"
+      ],
+      "OCSP - URI": [
+        "http://ocsp.globalsign.com/gsgccr6alphasslca2023"
+      ]
+    },
+    "ca": false,
+    "modulus": "9B859F6F29CCEF1D927A6CC114D1C1085F23196850E71E76D5377ED401C1F3282ECC05E7600868B134BD7EE1E451061833FCB6A3FDC0CAE408A02564B28487F548E2D3F05432FA3A5217D4DE654D8717D0F9B8CACB9908B942FDBD808BD27745C21D57E3D2D579C8741CACD14B647779C4391E676163FE1069E2D745D917E7924D888209C2F5B974488D0C4A57118C06ECF489E216F98CF1E932534CDD81966934FB97E3629D7449400F5C63B19B8A6953F51F530530CEBAE7DB6428B7CBFA50B45C61E77D5F2DD9EE1A783151F8532E24A6EB344A6E975988B8F1BFA451647217FC0317E76AB4E5BE53367412D7A25E240EB40947EA406D7A715CD22609ED3B",
+    "bits": 2048,
+    "exponent": "0x10001",
+    "pubkey": {
+      "type": "Buffer",
+      "data": [
+        48,
+        130,
+        1,
+        34,
+        48,
+        13,
+        6,
+        9,
+        42,
+        134,
+        72,
+        134,
+        247,
+        13,
+        1,
+        1,
+        1,
+        5,
+        0,
+        3,
+        130,
+        1,
+        15,
+        0,
+        48,
+        130,
+        1,
+        10,
+        2,
+        130,
+        1,
+        1,
+        0,
+        155,
+        133,
+        159,
+        111,
+        41,
+        204,
+        239,
+        29,
+        146,
+        122,
+        108,
+        193,
+        20,
+        209,
+        193,
+        8,
+        95,
+        35,
+        25,
+        104,
+        80,
+        231,
+        30,
+        118,
+        213,
+        55,
+        126,
+        212,
+        1,
+        193,
+        243,
+        40,
+        46,
+        204,
+        5,
+        231,
+        96,
+        8,
+        104,
+        177,
+        52,
+        189,
+        126,
+        225,
+        228,
+        81,
+        6,
+        24,
+        51,
+        252,
+        182,
+        163,
+        253,
+        192,
+        202,
+        228,
+        8,
+        160,
+        37,
+        100,
+        178,
+        132,
+        135,
+        245,
+        72,
+        226,
+        211,
+        240,
+        84,
+        50,
+        250,
+        58,
+        82,
+        23,
+        212,
+        222,
+        101,
+        77,
+        135,
+        23,
+        208,
+        249,
+        184,
+        202,
+        203,
+        153,
+        8,
+        185,
+        66,
+        253,
+        189,
+        128,
+        139,
+        210,
+        119,
+        69,
+        194,
+        29,
+        87,
+        227,
+        210,
+        213,
+        121,
+        200,
+        116,
+        28,
+        172,
+        209,
+        75,
+        100,
+        119,
+        121,
+        196,
+        57,
+        30,
+        103,
+        97,
+        99,
+        254,
+        16,
+        105,
+        226,
+        215,
+        69,
+        217,
+        23,
+        231,
+        146,
+        77,
+        136,
+        130,
+        9,
+        194,
+        245,
+        185,
+        116,
+        72,
+        141,
+        12,
+        74,
+        87,
+        17,
+        140,
+        6,
+        236,
+        244,
+        137,
+        226,
+        22,
+        249,
+        140,
+        241,
+        233,
+        50,
+        83,
+        76,
+        221,
+        129,
+        150,
+        105,
+        52,
+        251,
+        151,
+        227,
+        98,
+        157,
+        116,
+        73,
+        64,
+        15,
+        92,
+        99,
+        177,
+        155,
+        138,
+        105,
+        83,
+        245,
+        31,
+        83,
+        5,
+        48,
+        206,
+        186,
+        231,
+        219,
+        100,
+        40,
+        183,
+        203,
+        250,
+        80,
+        180,
+        92,
+        97,
+        231,
+        125,
+        95,
+        45,
+        217,
+        238,
+        26,
+        120,
+        49,
+        81,
+        248,
+        83,
+        46,
+        36,
+        166,
+        235,
+        52,
+        74,
+        110,
+        151,
+        89,
+        136,
+        184,
+        241,
+        191,
+        164,
+        81,
+        100,
+        114,
+        23,
+        252,
+        3,
+        23,
+        231,
+        106,
+        180,
+        229,
+        190,
+        83,
+        54,
+        116,
+        18,
+        215,
+        162,
+        94,
+        36,
+        14,
+        180,
+        9,
+        71,
+        234,
+        64,
+        109,
+        122,
+        113,
+        92,
+        210,
+        38,
+        9,
+        237,
+        59,
+        2,
+        3,
+        1,
+        0,
+        1
+      ]
+    },
+    "valid_from": "Dec 16 10:37:50 2024 GMT",
+    "valid_to": "Jan 17 10:37:49 2026 GMT",
+    "fingerprint": "60:7E:3B:A9:75:6B:44:7D:BF:49:A6:94:07:03:0E:73:BF:99:9F:A5",
+    "fingerprint256": "5B:34:8C:A5:58:D2:90:6C:B3:02:56:E1:BC:19:8F:DD:5C:A5:43:05:79:D3:BC:8B:D9:7F:47:AC:BC:DB:67:DE",
+    "fingerprint512": "43:89:DD:CA:DA:8D:3A:E4:D4:AD:4C:30:F6:3A:DE:97:FE:B8:03:52:9A:FF:9A:CD:B6:6F:B0:76:23:C0:DE:08:16:7B:54:11:E8:B5:63:DB:92:58:50:15:4F:EC:AA:B5:0C:F1:28:3B:0D:CC:6E:6E:35:5B:0B:AD:A6:DC:D7:41",
+    "ext_key_usage": [
+      "1.3.6.1.5.5.7.3.1",
+      "1.3.6.1.5.5.7.3.2"
+    ],
+    "serialNumber": "52CFE786C2D45DBE5D45884C"
+  },
+  "domain": {
+    "internicData": {
+      "error": "No matches found for domain in internic database"
+    },
+    "whoisData": null
+  },
+  "server-info": {
+    "loc": "",
+    "type": ""
+  },
+  "dns": {
+    "A": {
+      "address": "93.85.84.173",
+      "family": 4
+    },
+    "AAAA": [
+      "93.85.84.173"
+    ],
+    "MX": [],
+    "TXT": [
+      {
+        "exchange": "bf.belta.by",
+        "priority": 2
+      },
+      {
+        "exchange": "gt.belta.by",
+        "priority": 5
+      },
+      {
+        "exchange": "bt.belta.by",
+        "priority": 3
+      },
+      {
+        "exchange": "ksmg.belta.by",
+        "priority": 1
+      }
+    ],
+    "NS": [
+      [
+        "yandex-verification: 5663cc016ad6440d"
+      ],
+      [
+        "google-site-verification=co-xJOwE_pyZNYL8hF6TaT2C9dDisgW8231sszZ-JI0"
+      ],
+      [
+        "v=spf1 ip4:86.57.149.79 ip4:86.57.149.87 ip4:178.124.194.92 ip4:86.57.149.80 ~all"
+      ],
+      [
+        "_globalsign-domain-verification=7aMF-Ivo-ZRXFPaMHcZYBaTG_jQa2TEpPL8viY42RV"
+      ]
+    ],
+    "CNAME": [
+      "ns1.belta.by",
+      "gate.belta.by"
+    ],
+    "SOA": [],
+    "SRV": {
+      "nsname": "gate.belta.by",
+      "hostmaster": "postmaster.belta.by",
+      "serial": 2025061712,
+      "refresh": 1200,
+      "retry": 600,
+      "expire": 1209600,
+      "minttl": 1200
+    },
+    "PTR": []
+  },
+  "hosts": null,
+  "http-security": "{\"error\":\"socket hang up\"}",
+  "social-tags": "{\"error\":\"Failed fetching data\"}",
+  "security-txt": {
+    "isPresent": false
+  },
+  "dns-server": {
+    "domain": "belta.by",
+    "dns": [
+      {
+        "address": "93.85.84.173",
+        "hostname": null,
+        "dohDirectSupports": false
+      }
+    ]
+  },
+  "firewall": "{\"error\":\"socket hang up\"}",
+  "dnssec": {
+    "DNSKEY": {
+      "isFound": false,
+      "answer": null,
+      "response": {
+        "Status": 3,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "https://belta.by.",
+            "type": 48
+          }
+        ],
+        "Authority": [
+          {
+            "name": "by.",
+            "type": 6,
+            "TTL": 1800,
+            "data": "dns1.tld.becloud.by. support.becloud.by. 2508100310 3600 600 604800 3600"
+          }
+        ],
+        "Comment": "Response from 2a0e:b81:8001:1001::2."
+      }
+    },
+    "DS": {
+      "isFound": false,
+      "answer": null,
+      "response": {
+        "Status": 3,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "https://belta.by.",
+            "type": 43
+          }
+        ],
+        "Authority": [
+          {
+            "name": "by.",
+            "type": 6,
+            "TTL": 1800,
+            "data": "dns1.tld.becloud.by. support.becloud.by. 2508100310 3600 600 604800 3600"
+          }
+        ],
+        "Comment": "Response from 93.125.25.73."
+      }
+    },
+    "RRSIG": {
+      "isFound": false,
+      "answer": null,
+      "response": {
+        "Status": 3,
+        "TC": false,
+        "RD": true,
+        "RA": true,
+        "AD": true,
+        "CD": false,
+        "Question": [
+          {
+            "name": "https://belta.by.",
+            "type": 46
+          }
+        ],
+        "Authority": [
+          {
+            "name": "by.",
+            "type": 6,
+            "TTL": 1800,
+            "data": "dns1.tld.becloud.by. support.becloud.by. 2508100310 3600 600 604800 3600"
+          }
+        ],
+        "Comment": "Response from 31.44.1.137."
+      }
+    }
+  },
+  "hsts": {
+    "message": "Site does not serve any HSTS headers.",
+    "compatible": false,
+    "hstsHeader": null
+  },
+  "threats": {
+    "urlHaus": {
+      "error": "Request to URLHaus failed, Request failed with status code 401"
+    },
+    "phishTank": {
+      "url0": {
+        "url": "https://belta.by",
+        "in_database": "false"
+      }
+    },
+    "cloudmersive": {
+      "error": "Request to Cloudmersive failed: Request failed with status code 401"
+    },
+    "safeBrowsing": {
+      "error": "GOOGLE_CLOUD_API_KEY is required for the Google Safe Browsing check"
+    }
+  },
+  "rank": {
+    "ranks": [
+      {
+        "date": "2025-08-03",
+        "rank": 19462
+      },
+      {
+        "date": "2025-08-02",
+        "rank": 19394
+      },
+      {
+        "date": "2025-08-01",
+        "rank": 19283
+      },
+      {
+        "date": "2025-07-31",
+        "rank": 19177
+      },
+      {
+        "date": "2025-07-30",
+        "rank": 19053
+      },
+      {
+        "date": "2025-07-29",
+        "rank": 18899
+      },
+      {
+        "date": "2025-07-28",
+        "rank": 18825
+      },
+      {
+        "date": "2025-07-27",
+        "rank": 18657
+      },
+      {
+        "date": "2025-07-26",
+        "rank": 18550
+      },
+      {
+        "date": "2025-07-25",
+        "rank": 18511
+      },
+      {
+        "date": "2025-07-24",
+        "rank": 18415
+      },
+      {
+        "date": "2025-07-23",
+        "rank": 18475
+      },
+      {
+        "date": "2025-07-22",
+        "rank": 18530
+      },
+      {
+        "date": "2025-07-21",
+        "rank": 18606
+      },
+      {
+        "date": "2025-07-20",
+        "rank": 18487
+      },
+      {
+        "date": "2025-07-19",
+        "rank": 18430
+      },
+      {
+        "date": "2025-07-18",
+        "rank": 18411
+      },
+      {
+        "date": "2025-07-17",
+        "rank": 18395
+      },
+      {
+        "date": "2025-07-16",
+        "rank": 18424
+      },
+      {
+        "date": "2025-07-15",
+        "rank": 18452
+      },
+      {
+        "date": "2025-07-14",
+        "rank": 18491
+      },
+      {
+        "date": "2025-07-13",
+        "rank": 18548
+      },
+      {
+        "date": "2025-07-12",
+        "rank": 18553
+      },
+      {
+        "date": "2025-07-11",
+        "rank": 18592
+      },
+      {
+        "date": "2025-07-10",
+        "rank": 18513
+      },
+      {
+        "date": "2025-07-09",
+        "rank": 18485
+      },
+      {
+        "date": "2025-07-08",
+        "rank": 18437
+      },
+      {
+        "date": "2025-07-07",
+        "rank": 18393
+      },
+      {
+        "date": "2025-07-06",
+        "rank": 18431
+      },
+      {
+        "date": "2025-07-05",
+        "rank": 18450
+      },
+      {
+        "date": "2025-07-04",
+        "rank": 18565
+      },
+      {
+        "date": "2025-07-03",
+        "rank": 18595
+      },
+      {
+        "date": "2025-07-02",
+        "rank": 18594
+      },
+      {
+        "date": "2025-07-01",
+        "rank": 18570
+      },
+      {
+        "date": "2025-06-30",
+        "rank": 18569
+      }
+    ],
+    "domain": "belta.by"
+  },
+  "tls-cipher-suites": {
+    "id": 63925800,
+    "timestamp": "2025-08-10T03:12:53.862389Z",
+    "target": "belta.by",
+    "replay": -1,
+    "has_tls": false,
+    "cert_id": -1,
+    "trust_id": -1,
+    "is_valid": false,
+    "completion_perc": 0,
+    "connection_info": {
+      "scanIP": "",
+      "serverside": false,
+      "ciphersuite": null,
+      "curvesFallback": false
+    },
+    "ack": true,
+    "attempts": 1,
+    "analysis_params": {}
+  },
+  "tls-security-config": {
+    "id": 63925800,
+    "timestamp": "2025-08-10T03:12:53.862389Z",
+    "target": "belta.by",
+    "replay": -1,
+    "has_tls": false,
+    "cert_id": -1,
+    "trust_id": -1,
+    "is_valid": false,
+    "completion_perc": 0,
+    "connection_info": {
+      "scanIP": "",
+      "serverside": false,
+      "ciphersuite": null,
+      "curvesFallback": false
+    },
+    "ack": true,
+    "attempts": 1,
+    "analysis_params": {}
+  },
+  "tls-client-support": {
+    "id": 63925800,
+    "timestamp": "2025-08-10T03:12:53.862389Z",
+    "target": "belta.by",
+    "replay": -1,
+    "has_tls": false,
+    "cert_id": -1,
+    "trust_id": -1,
+    "is_valid": false,
+    "completion_perc": 0,
+    "connection_info": {
+      "scanIP": "",
+      "serverside": false,
+      "ciphersuite": null,
+      "curvesFallback": false
+    },
+    "ack": true,
+    "attempts": 1,
+    "analysis_params": {}
+  },
+  "redirects": {
+    "redirects": [
+      "https://belta.by"
+    ]
+  },
+  "robots-txt": "{\"error\":\"Error fetching robots.txt: socket hang up\"}",
+  "ports": {
+    "openPorts": [
+      80,
+      179,
+      443
+    ],
+    "failedPorts": [
+      20,
+      21,
+      22,
+      23,
+      25,
+      53,
+      67,
+      68,
+      69,
+      110,
+      119,
+      123,
+      143,
+      156,
+      161,
+      162,
+      194,
+      389,
+      587,
+      993,
+      995,
+      3000,
+      3306,
+      3389,
+      5060,
+      5900,
+      8000,
+      8080,
+      8888
+    ]
+  },
+  "txt-records": {
+    "google-site-verification": "co-xJOwE_pyZNYL8hF6TaT2C9dDisgW8231sszZ-JI0",
+    "v": "spf1 ip4:86.57.149.79 ip4:86.57.149.87 ip4:178.124.194.92 ip4:86.57.149.80 ~all",
+    "_globalsign-domain-verification": "7aMF-Ivo-ZRXFPaMHcZYBaTG_jQa2TEpPL8viY42RV",
+    "yandex-verification: 5663cc016ad6440d": ""
+  },
+  "block-lists": {
+    "blocklists": [
+      {
+        "server": "AdGuard",
+        "serverIp": "176.103.130.130",
+        "isBlocked": false
+      },
+      {
+        "server": "AdGuard Family",
+        "serverIp": "176.103.130.132",
+        "isBlocked": false
+      },
+      {
+        "server": "CleanBrowsing Adult",
+        "serverIp": "185.228.168.10",
+        "isBlocked": false
+      },
+      {
+        "server": "CleanBrowsing Family",
+        "serverIp": "185.228.168.168",
+        "isBlocked": false
+      },
+      {
+        "server": "CleanBrowsing Security",
+        "serverIp": "185.228.168.9",
+        "isBlocked": false
+      },
+      {
+        "server": "CloudFlare",
+        "serverIp": "1.1.1.1",
+        "isBlocked": false
+      },
+      {
+        "server": "CloudFlare Family",
+        "serverIp": "1.1.1.3",
+        "isBlocked": false
+      },
+      {
+        "server": "Comodo Secure",
+        "serverIp": "8.26.56.26",
+        "isBlocked": false
+      },
+      {
+        "server": "Google DNS",
+        "serverIp": "8.8.8.8",
+        "isBlocked": false
+      },
+      {
+        "server": "Neustar Family",
+        "serverIp": "156.154.70.3",
+        "isBlocked": false
+      },
+      {
+        "server": "Neustar Protection",
+        "serverIp": "156.154.70.2",
+        "isBlocked": false
+      },
+      {
+        "server": "Norton Family",
+        "serverIp": "199.85.126.20",
+        "isBlocked": false
+      },
+      {
+        "server": "OpenDNS",
+        "serverIp": "208.67.222.222",
+        "isBlocked": false
+      },
+      {
+        "server": "OpenDNS Family",
+        "serverIp": "208.67.222.123",
+        "isBlocked": false
+      },
+      {
+        "server": "Quad9",
+        "serverIp": "9.9.9.9",
+        "isBlocked": false
+      },
+      {
+        "server": "Yandex Family",
+        "serverIp": "77.88.8.7",
+        "isBlocked": false
+      },
+      {
+        "server": "Yandex Safe",
+        "serverIp": "77.88.8.88",
+        "isBlocked": false
+      }
+    ]
+  },
+  "carbon": {
+    "bytes": 259839,
+    "green": false,
+    "gco2e": 0.027076942426152526,
+    "rating": "A+",
+    "statistics": {
+      "adjustedBytes": 196178.445,
+      "energy": 0.00005481162434443831,
+      "co2": {
+        "grid": {
+          "grams": 0.027076942426152526,
+          "litres": 0.015060195377426032
+        },
+        "renewable": {
+          "grams": 0.02211283631469123,
+          "litres": 0.01229915955823126
+        }
+      }
+    },
+    "cleanerThan": 0.96,
+    "scanUrl": "https://belta.by"
+  }
+}
