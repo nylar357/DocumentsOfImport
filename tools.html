@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malware Analysis Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark gray-blue background */
+            color: #f3f4f6;
+        }
+        .bubble-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .bubble {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), inset 0 0 10px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3), inset 0 0 15px rgba(255,255,255,0.2);
+        }
+        .bubble::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            filter: blur(5px);
+        }
+        .bubble h3 {
+            font-size: 1.125rem; /* 18px */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        .bubble p {
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.4;
+            color: #e5e7eb;
+        }
+        /* Color variants */
+        .bubble-blue { background: radial-gradient(circle at 30% 30%, #4f46e5, #312e81); }
+        .bubble-green { background: radial-gradient(circle at 30% 30%, #10b981, #047857); }
+        .bubble-purple { background: radial-gradient(circle at 30% 30%, #8b5cf6, #5b21b6); }
+        .bubble-red { background: radial-gradient(circle at 30% 30%, #ef4444, #b91c1c); }
+        .bubble-yellow { background: radial-gradient(circle at 30% 30%, #f59e0b, #b45309); }
+        .bubble-cyan { background: radial-gradient(circle at 30% 30%, #06b6d4, #0e7490); }
+        .bubble-pink { background: radial-gradient(circle at 30% 30%, #ec4899, #be185d); }
+        .bubble-indigo { background: radial-gradient(circle at 30% 30%, #6366f1, #4338ca); }
+        .bubble-teal { background: radial-gradient(circle at 30% 30%, #14b8a6, #0f766e); }
+        .bubble-orange { background: radial-gradient(circle at 30% 30%, #f97316, #c2410c); }
+        .bubble-lime { background: radial-gradient(circle at 30% 30%, #84cc16, #4d7c0f); }
+        .bubble-sky { background: radial-gradient(circle at 30% 30%, #38bdf8, #075985); }
+        .bubble-fuchsia { background: radial-gradient(circle at 30% 30%, #d946ef, #a21caf); }
+        .bubble-rose { background: radial-gradient(circle at 30% 30%, #f43f5e, #9f1239); }
+        .bubble-emerald { background: radial-gradient(circle at 30% 30%, #34d399, #065f46); }
+        .bubble-violet { background: radial-gradient(circle at 30% 30%, #a78bfa, #6d28d9); }
+
+
+        @media (max-width: 640px) {
+            .bubble {
+                width: 180px;
+                height: 180px;
+                padding: 1rem;
+            }
+            .bubble h3 {
+                font-size: 1rem;
+            }
+            .bubble p {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <div class="container mx-auto py-12 px-4">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                Malware Analysis Tools
+            </h1>
+            <p class="mt-4 text-lg text-gray-400">A visual guide to popular tools for analyzing malicious software.</p>
+        </header>
+
+        <main class="bubble-container">
+            <!-- Row 1 -->
+            <div class="bubble bubble-blue">
+                <h3>Wireshark</h3>
+                <p>Analyzes network traffic to identify suspicious connections and data packets.</p>
+            </div>
+            <div class="bubble bubble-green">
+                <h3>Ghidra</h3>
+                <p>A free software reverse engineering suite by the NSA to decompile and analyze code.</p>
+            </div>
+            <div class="bubble bubble-purple">
+                <h3>IDA Pro</h3>
+                <p>Powerful disassembler and debugger for reverse engineering malicious code.</p>
+            </div>
+            <div class="bubble bubble-red">
+                <h3>Cuckoo Sandbox</h3>
+                <p>An automated sandbox to safely run and observe malware behavior in an isolated environment.</p>
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="bubble bubble-yellow">
+                <h3>Volatility</h3>
+                <p>An open-source framework for analyzing volatile memory (RAM) dumps for forensic investigation.</p>
+            </div>
+            <div class="bubble bubble-cyan">
+                <h3>PEStudio</h3>
+                <p>Performs static analysis of executable files to find properties and indicators of malice.</p>
+            </div>
+            <div class="bubble bubble-pink">
+                <h3>YARA</h3>
+                <p>Creates rules to identify and classify malware families based on textual or binary patterns.</p>
+            </div>
+             <div class="bubble bubble-indigo">
+                <h3>Process Hacker</h3>
+                <p>A real-time system monitor that can detect, suspend, and terminate malicious processes.</p>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="bubble bubble-teal">
+                <h3>x64dbg</h3>
+                <p>An open-source debugger for Windows, essential for analyzing 32-bit and 64-bit malware.</p>
+            </div>
+            <div class="bubble bubble-orange">
+                <h3>Burp Suite</h3>
+                <p>A proxy tool for inspecting and manipulating web traffic between a browser and a server.</p>
+            </div>
+            <div class="bubble bubble-lime">
+                <h3>Process Monitor</h3>
+                <p>Part of Sysinternals, it monitors file system, registry, and process activity in real-time.</p>
+            </div>
+            <div class="bubble bubble-sky">
+                <h3>Autoruns</h3>
+                <p>Also from Sysinternals, it reveals programs set to run automatically during startup or login.</p>
+            </div>
+            
+             <!-- Row 4 -->
+            <div class="bubble bubble-fuchsia">
+                <h3>FLOSS</h3>
+                <p>Automatically deobfuscates and extracts strings from malware binaries, even when hidden.</p>
+            </div>
+            <div class="bubble bubble-rose">
+                <h3>dnSpy</h3>
+                <p>A debugger and .NET assembly editor, crucial for analyzing malware written in .NET.</p>
+            </div>
+            <div class="bubble bubble-emerald">
+                <h3>Any.Run</h3>
+                <p>An interactive online sandbox that allows for real-time analysis of malware in a safe environment.</p>
+            </div>
+            <div class="bubble bubble-violet">
+                <h3>VirusTotal</h3>
+                <p>An online service that analyzes files and URLs using dozens of antivirus engines.</p>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
+
+
