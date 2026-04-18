@@ -1,6 +1,7 @@
 #!/bin/bash
 # Toggle visualizer:
-# Deps : xdotool kitty-terminal cava
+# Deps : | xdotool | kitty-terminal | cava |
+# other requirement : you will need a file in .config/kitty/ named colors.conf if u want to define the colors of the spectrum.
 
 # Kill it if you get nothing, there is an invisible terminal window running now.  Essentially this is running in a remote controlled kitty terminal with cava controlling it.
 
