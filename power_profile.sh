@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Power Profile Rofi Widget -- www.linkedin.com/in/brycezg
+# A bash-driven Rofi script to toggle between Performance, Balanced, and Power Saver modes via powerprofilesctl.
+# Features:
+# |--> Custom layout with scalable background image support and semi-transparent overlays.
+# |--> Dynamic top-bar pill displaying live CPU frequency ranges directly from the kernel scaling governor.
+# |--> Real-time CPU temperature polling utilizing the k10temp module (with thermal zone fallbacks).
+# |--> Styled with Dracula-inspired color gradients and custom bounding-box layout fixes for clean pill rendering.
+
+
 # --- 1. Toggle Logic ---
 if pgrep -x "rofi" > /dev/null; then
     pkill rofi
